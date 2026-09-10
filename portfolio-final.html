@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Pavel Gnezdilov — Portfolio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #08090C; overflow-x: hidden; }
+
+  /* Show only the right version */
+  .v-desktop, .v-tablet, .v-mobile { display: none; }
+  @media (min-width: 1100px) { .v-desktop { display: block; } }
+  @media (min-width: 600px) and (max-width: 1099px) { .v-tablet { display: block; } }
+  @media (max-width: 599px) { .v-mobile { display: block; } }
+
+  /* Desktop styles */
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #08090C;
+    overflow-x: hidden;
+  }
+  .v-desktop .page {
+    width: 1280px;
+    min-height: 8651px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  /* Floating / levitating animation for Goals decorations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes float-rot {
+    0%, 100% { transform: translateY(0px) rotate(var(--r)); }
+    50% { transform: translateY(-12px) rotate(var(--r)); }
+  }
+  .float {
+    animation: float 4.5s ease-in-out infinite;
+  }
+  .float-rot {
+    animation: float-rot 5s ease-in-out infinite;
+  }
+  .float-delay-1 { animation-delay: 0.4s; }
+  .float-delay-2 { animation-delay: 0.9s; }
+  .float-delay-3 { animation-delay: 1.3s; }
+  .float-delay-4 { animation-delay: 0.6s; }
+  .float-delay-5 { animation-delay: 1.1s; }
+
+  /* Nav + Explore clickable */
+  .nav-item, .explore-btn {
+    cursor: pointer;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .nav-item:hover, .explore-btn:hover {
+    opacity: 0.75;
+    transform: translateY(-2px);
+  }
+
+  /* Social cards */
+  .social-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    text-decoration: none;
+    display: block;
+  }
+  .social-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    filter: brightness(1.08);
+  }
+
+  /* Images that had sizing issues */
+  .img-cover {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Cosmic background for About */
+  #about {
+    background: radial-gradient(ellipse at 70% 40%, #1a0a2e 0%, #0b0614 40%, #05030a 100%);
+  }
+  #cosmic-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d) ease-in-out infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  .nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    animation: nebula-pulse 8s ease-in-out infinite;
+  }
+  @keyframes nebula-pulse {
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.15); }
+  }
+
+
+  /* Tablet styles */
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #08090C;
+    overflow-x: hidden;
+  }
+  .v-tablet .page {
+    width: 800px;
+    min-height: 9200px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  /* Floating */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes float-rot {
+    0%, 100% { transform: translateY(0px) rotate(var(--r)); }
+    50% { transform: translateY(-10px) rotate(var(--r)); }
+  }
+  .float { animation: float 4.5s ease-in-out infinite; }
+  .float-rot { animation: float-rot 5s ease-in-out infinite; }
+  .float-delay-1 { animation-delay: 0.4s; }
+  .float-delay-2 { animation-delay: 0.9s; }
+  .float-delay-3 { animation-delay: 1.3s; }
+  .float-delay-4 { animation-delay: 0.6s; }
+  .float-delay-5 { animation-delay: 1.1s; }
+
+  .nav-item, .explore-btn {
+    cursor: pointer;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .nav-item:hover, .explore-btn:hover {
+    opacity: 0.75;
+    transform: translateY(-2px);
+  }
+
+  .social-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    text-decoration: none;
+    display: block;
+  }
+  .social-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    filter: brightness(1.08);
+  }
+
+  /* Cosmic About */
+  #about {
+    background: radial-gradient(ellipse at 70% 40%, #1a0a2e 0%, #0b0614 40%, #05030a 100%);
+  }
+  #cosmic-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.35;
+    animation: nebula-pulse 8s ease-in-out infinite;
+  }
+  @keyframes nebula-pulse {
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.12); }
+  }
+
+
+  /* Mobile styles */
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #08090C; overflow-x: hidden; }
+  .v-mobile .page { width: 375px; min-height: 9750px; position: relative; margin: 0 auto; }
+
+  .nav-item, .explore-btn, .menu-item {
+    cursor: pointer;
+    transition: opacity 0.25s, transform 0.25s;
+  }
+  .nav-item:hover, .explore-btn:hover, .menu-item:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+  .social-card {
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+  .social-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    filter: brightness(1.08);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes float-rot {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50% { transform: translateY(-8px) rotate(var(--r, 0deg)); }
+  }
+  .float { animation: float 4.5s ease-in-out infinite; }
+  .float-rot { animation: float-rot 5s ease-in-out infinite; }
+  .d1 { animation-delay: 0.3s; }
+  .d2 { animation-delay: 0.7s; }
+  .d3 { animation-delay: 1.1s; }
+
+  .cosmic-area {
+    background: radial-gradient(ellipse at 50% 40%, #1a0a2e 0%, #0b0614 45%, #05030a 100%);
+    overflow: hidden;
+  }
+  .cosmic-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.35;
+    animation: nebula 8s ease-in-out infinite;
+  }
+  @keyframes nebula {
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.12); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile menu button + popup */
+  .mobile-menu-btn {
+    position: absolute;
+    width: 54px;
+    height: 45px;
+    background: #15171C;
+    border-radius: 58px;
+    border: 8px solid #292C33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: background 0.3s;
+  }
+  .mobile-menu-btn span {
+    color: white;
+    font-size: 28px;
+    font-family: monospace;
+    font-weight: 500;
+    line-height: 1;
+    transition: transform 0.3s;
+  }
+  .mobile-menu-btn.open span {
+    transform: rotate(45deg);
+  }
+  .mobile-menu {
+    position: fixed;
+    top: 80px;
+    right: 16px;
+    width: 220px;
+    background: #15171C;
+    border: 8px solid #292C33;
+    border-radius: 58px;
+    padding: 28px 20px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-16px) scale(0.92);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  .mobile-menu .menu-item {
+    display: block;
+    color: white;
+    font-size: 20px;
+    padding: 14px 12px;
+    text-align: center;
+    border-radius: 30px;
+    margin-bottom: 6px;
+    transition: background 0.25s;
+  }
+  .mobile-menu .menu-item:active {
+    background: rgba(255,255,255,0.1);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ========== DESKTOP ========== -->
+<div class="v-desktop">
+
+<div class="page">
+
+    <!-- HERO -->
+    <div style="width: 1280px; height: 1091px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, #08090C 42%, #394056 100%); overflow: hidden">
+        <div style="left: 307px; top: 171px; position: absolute; color: white; font-size: 96px; font-family: Soyuz Grotesk; font-weight: 700; word-wrap: break-word">PAVEL GNEZDILOV</div>
+        <div style="width: 841px; height: 48px; left: 219px; top: 93px; position: absolute; background: #15171C; border-radius: 147px; border: 8px #292C33 solid"></div>
+        <div style="left: 445px; top: 333px; position: absolute"><span style="color: #8A8F98; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">Cybersecurity / </span><span style="color: #65BFFF; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">Developer</span></div>
+        
+        <div class="nav-item" data-target="about" style="left: 266px; top: 98px; position: absolute; color: white; font-size: 24px; font-family: Monoton; font-weight: 400; word-wrap: break-word">AB0UT</div>
+        <div class="nav-item" data-target="projects" style="left: 445px; top: 103px; position: absolute; color: white; font-size: 24px; font-family: Pilowlava; font-weight: 400; word-wrap: break-word">PROJECTS</div>
+        <div class="nav-item" data-target="socials" style="left: 699px; top: 98px; position: absolute; color: white; font-size: 28px; font-family: Soyuz Grotesk; font-weight: 700; word-wrap: break-word">SOCIALS</div>
+        <div class="nav-item" data-target="goals" style="left: 891px; top: 98px; position: absolute; color: white; font-size: 24px; font-family: Aktiv Grotesk Corp; font-weight: 500; word-wrap: break-word">GOALS</div>
+        
+        <img style="width: 399px; height: 598px; left: 881px; top: 493px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/ChatGPT%20Image%208%20%D0%B0%D0%B2%D0%B3.%202026%20%D0%B3.%2C%2011_27_28%201.png" />
+        <div style="width: 695px; height: 70px; left: 64px; top: 667px; position: absolute; color: #B8BCC4; font-size: 32px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Cybersecurity student and developer focused on building projects, exploring new technologies, and growing through hands-on experience.</div>
+        <div class="explore-btn" data-target="about" style="width: 233px; left: 526px; top: 1002px; position: absolute; text-align: center; color: #6FA8FF; font-size: 32px; font-family: Basement Grotesque; font-weight: 800; word-wrap: break-word">EXPLORE ↓</div>
+    </div>
+
+    <!-- ABOUT background -->
+    <div style="width: 1280px; height: 1091px; left: 0px; top: 1091px; position: absolute; background: #08090C"></div>
+    <img style="width: 1280px; height: 200px; left: 0px; top: 1091px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/noisy-gradients.png" />
+    
+    <div id="about" style="width: 1280px; height: 891px; left: 0px; top: 1291px; position: absolute; overflow: hidden">
+        <!-- Cosmic animated background instead of the two broken photos -->
+        <canvas id="cosmic-canvas"></canvas>
+        <!-- soft nebulae -->
+        <div class="nebula" style="width: 420px; height: 420px; left: 780px; top: 80px; background: radial-gradient(circle, #6C35D9 0%, transparent 70%);"></div>
+        <div class="nebula" style="width: 360px; height: 360px; left: 980px; top: 380px; background: radial-gradient(circle, #3159B8 0%, transparent 70%); animation-delay: 2s;"></div>
+        <div class="nebula" style="width: 280px; height: 280px; left: 700px; top: 450px; background: radial-gradient(circle, #65BFFF 0%, transparent 70%); animation-delay: 4s;"></div>
+    </div>
+
+
+    <div style="left: 393px; top: 1113px; position: absolute; color: #08090C; font-size: 128px; font-family: Montserrat; font-style: italic; font-weight: 900; word-wrap: break-word">ABOUT</div>
+    <div style="left: 498px; top: 1370px; position: absolute; color: white; font-size: 32px; font-family: Neue Montreal; font-style: italic; font-weight: 500; word-wrap: break-word">A little more about me.</div>
+    <div style="width: 588px; left: 17px; top: 1546px; position: absolute; color: white; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">I’m Pavel, a cybersecurity student and developer focused on building things, exploring new technologies, and turning ideas into real projects. I’m currently developing my skills in cybersecurity, programming, and web design while working on personal projects and learning something new every day.</div>
+    <div style="left: 17px; top: 1988px; position: absolute; color: white; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">Based in Almaty, Kazakhstan · Open to new ideas</div>
+
+    <!-- Quote section -->
+    <div style="width: 1280px; height: 1088px; left: 0px; top: 2182px; position: absolute; background: linear-gradient(360deg, #6C35D9 0%, #3159B8 36%, #0C1221 75%, #08090C 100%)"></div>
+    <div style="left: 496px; top: 2688px; position: absolute; text-align: center; color: white; font-size: 28px; font-family: That That New Pixel Test; font-style: italic; font-weight: 400; word-wrap: break-word">Curiosity starts the journey.<br/>Building gives it a direction.</div>
+    <div class="explore-btn" data-target="projects" style="left: 482px; top: 3109px; position: absolute; text-align: center; color: white; font-size: 28px; font-family: Chivo Mono; font-style: italic; font-weight: 300; word-wrap: break-word">SCROLL TO EXPLORE ↓</div>
+
+    <!-- PROJECTS -->
+    <div id="projects" style="width: 1280px; height: 1274px; left: 0px; top: 3270px; position: absolute; background: #F7F5FF"></div>
+    <div style="width: 469px; height: 111px; left: 29px; top: 3295px; position: absolute; color: #17151C; font-size: 96px; font-family: Space Grotesk; font-weight: 500; word-wrap: break-word">PROJECTS</div>
+    
+    <!-- Fixed object-fit + cleaned URL -->
+    <img class="img-cover" style="width: 643px; height: 360px; left: 65px; top: 3456px; position: absolute; box-shadow: 0px 21px 39.9px rgba(0, 0, 0, 0.25); border-radius: 58px" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/photo_2026-08-09_09-55-34%201.png" />
+    
+    <div style="width: 643px; left: 65px; top: 3841px; position: absolute"><span style="color: #111111; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">Burmalda Analyzer. </span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">A cybersecurity dashboard designed to turn raw security logs into clear, actionable insights. It monitors events, highlights potential threats, and provides an interactive interface for investigating suspicious activity.</span></div>
+    <div style="width: 408px; height: 190px; left: 799px; top: 3456px; position: absolute"><span style="color: #08090C; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">Port Scanner. </span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">A lightweight Python tool for scanning IPv4 addresses and domains, with customizable port ranges and multithreaded scanning.</span></div>
+    <div style="width: 398px; left: 799px; top: 3689px; position: absolute"><span style="color: #1E1E1E; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">Password Strength.</span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word"> </span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">Checker. A simple Python tool that evaluates password strength based on length, characters, and complexity.</span></div>
+    <div style="width: 398px; left: 799px; top: 3922px; position: absolute"><span style="color: #1E1E1E; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">Hash Tool.</span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word"> </span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">A lightweight Python utility for generating and verifying MD5, SHA-1, SHA-256, and SHA-512 hashes.</span></div>
+    <div style="width: 643px; left: 65px; top: 4137px; position: absolute"><span style="color: #08090C; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">THM Helper.</span><span style="color: #08090C; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word"> </span><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">A TryHackMe utility for tracking progress, finding new challenges, and monitoring leaderboard changes.</span></div>
+    <div style="left: 65px; top: 4494px; position: absolute; color: #08090C; font-size: 32px; font-family: Neue Montreal; font-style: italic; font-weight: 700; word-wrap: break-word">IN DEVELOPMENT.</div>
+    <div style="width: 610px; left: 65px; top: 4279px; position: absolute"><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-style: italic; font-weight: 700; word-wrap: break-word">🏆 Leaderboard — </span><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">Your Rank / Competitor / Difference<br/></span><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-style: italic; font-weight: 700; word-wrap: break-word">🔥 Room Hunter — </span><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">New Challenge<br/></span><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-style: italic; font-weight: 700; word-wrap: break-word">📊 Progress —</span><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word"> Rooms / Points / Level<br/></span><span style="color: #15171C; font-size: 32px; font-family: Neue Montreal; font-style: italic; font-weight: 700; word-wrap: break-word">🔔 Notifications</span></div>
+
+    <!-- TERMINAL -->
+    <img style="width: 1280px; height: 1274px; left: 0px; top: 4544px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Rectangle%2012.png" />
+    <div style="width: 1280px; height: 1274px; left: 0px; top: 4544px; position: absolute; background: rgba(11, 11, 13, 0.66); border-radius: 58px"></div>
+    <div style="width: 1274px; height: 60px; left: 3px; top: 4544px; position: absolute; background: white; overflow: hidden; border-top-left-radius: 58px; border-top-right-radius: 68px">
+        <div style="left: 34px; top: 16px; position: absolute; text-align: center; color: black; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">🔴</div>
+        <div style="left: 80px; top: 16px; position: absolute; text-align: center; color: black; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">🟡</div>
+        <div style="left: 126px; top: 16px; position: absolute; text-align: center; color: black; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">🟢</div>
+        <div style="left: 570px; top: 12px; position: absolute; text-align: center; color: black; font-size: 28px; font-family: Chivo Mono; font-weight: 500; word-wrap: break-word">TERMINAL</div>
+    </div>
+    <div style="width: 1202px; height: 1202px; left: 14px; top: 4616px; position: absolute; color: #00C853; font-size: 26px; font-family: Chivo Mono; font-weight: 500; word-wrap: break-word">$ whoami  <br/><br/>Pavel Gnezdilov <br/>Cybersecurity Student   <br/><br/>$ education  <br/><br/>3rd Year Digital College<br/>of KazGASA Information Security   <br/><br/>$ certifications  <br/><br/>02 certificates <br/><br/>Google Cybersecurity <br/>Network Basics — Cisco NetAcad   <br/><br/>$ cybersecurity  <br/><br/>Network protocols <br/>Linux / Kali Linux <br/>Security tools <br/>AI-assisted workflows <br/>Log analysis <br/>Threat analysis   <br/><br/>$ tryhackme  <br/><br/>AUGUST '26 <br/><br/>Best position: KAZAKHSTAN — #1 WORLDWIDE — #365  TOP 7% ALL-TIME  <br/>Progress: ACTIVE<br/><br/>$ status  <br/><br/>Always learning. Always building.   <br/><br/>$ _</div>
+
+    <!-- GOALS -->
+    <div id="goals" style="width: 1280px; height: 1272px; left: 0px; top: 5818px; position: absolute; background: #E8E8E8"></div>
+    <div style="width: 447px; height: 142px; left: 417px; top: 5818px; position: absolute; color: #555555; font-size: 128px; font-family: Neue Montreal; font-weight: 700; word-wrap: break-word">GOALS</div>
+    <div style="width: 1267px; left: 7px; top: 6028px; position: absolute"><span style="color: black; font-size: 36px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">01 — CYBERSECURITY<br/></span><span style="color: #555555; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">I want to become a stronger cybersecurity specialist by gaining more practical experience, improving my technical skills, and working on projects that solve real problems.</span></div>
+    <div style="width: 1244px; left: 7px; top: 6215px; position: absolute"><span style="color: black; font-size: 36px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">02 — CAREER<br/></span><span style="color: #555555; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">My next goal is to gain real work experience during my college internship and find a remote position with a company in Europe. I want to work in a professional environment and learn from real-world tasks.</span></div>
+    <div style="width: 1244px; left: 7px; top: 6440px; position: absolute"><span style="color: black; font-size: 36px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">03 — EDUCATION<br/></span><span style="color: #555555; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">My current goal is to successfully finish college and continue my education through higher education. I want to keep developing my knowledge and skills while figuring out which direction I want to take next.</span></div>
+    <div style="width: 1251px; left: 0px; top: 6665px; position: absolute"><span style="color: black; font-size: 36px; font-family: Neue Montreal; font-weight: 400; word-wrap: break-word">04 — STUDYING ABROAD<br/></span><span style="color: #555555; font-size: 32px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">One of my long-term goals is to study abroad. I would like to experience a different educational environment, meet people from different backgrounds, and continue developing both academically and personally.</span></div>
+
+    <!-- Goals decorative images with float animation -->
+    <img class="float-rot float-delay-1" style="--r: 28deg; width: 284.23px; height: 269.42px; left: 126.49px; top: 5756px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(5)%201.png" />
+    <img class="float-rot float-delay-2" style="--r: 20deg; width: 186.04px; height: 186.86px; left: 1105.18px; top: 6065.37px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(6)%201.png" />
+    <img class="float float-delay-3" style="width: 177px; height: 161px; left: 864px; top: 6326px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(7)%201.png" />
+    <img class="float-rot float-delay-4" style="--r: 38deg; width: 157.37px; height: 157.37px; left: 285.89px; top: 6316px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20free%20png%20of%20PNG%20Vintage%20graduation%20cap%20illustration_%20by%20Hein%20about%20graduation,%20graduation%20hat%20halftone,%20aesthetic%20png,%20graduation%20vintage,%20and%20graduation%20png%2017874227%201.png" />
+    <img class="float float-delay-5" style="width: 204px; height: 204px; left: 538px; top: 6534px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20premium%20image%20of%20Vintage%20textured%20briefcase%20illustration_%20by%20Tanat%20Chittirungsan%20about%20paper,%20background,%20texture,%20space,%20and%20aesthetic%2022325371%201.png" />
+    <img class="float float-delay-1" style="width: 295px; height: 295px; left: 0px; top: 6795px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20premium%20png%20of%20PNG%20Classical%20sculpture%20bust%20design%20by%20Hein%20about%20classical%20statue%20pop,%20background,%20transparent%20png,%20png,%20and%20paper%2017812897%201.png" />
+    <img class="float-rot float-delay-2" style="--r: -16deg; width: 389.69px; height: 389.69px; left: 366px; top: 6807.41px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(8)%201.png" />
+    <img class="float float-delay-3" style="width: 235px; height: 240px; left: 1016px; top: 5818px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/a1e2f38f44a6cc822fe0a3c4c3269dbeaf9a1b7e.png" />
+
+    <!-- SOCIALS -->
+    <div id="socials" style="width: 1280px; height: 1157px; left: 0px; top: 7090px; position: absolute; background: linear-gradient(180deg, #F5F2F7 0%, #867D8D 100%)"></div>
+    <div style="left: 0px; top: 7115px; position: absolute; color: #17151A; font-size: 96px; font-family: Montserrat; font-style: italic; font-weight: 700; word-wrap: break-word">SOCIALS / CONTACT</div>
+    <div style="width: 1244px; left: 7px; top: 7257px; position: absolute"><span style="color: #3F3C43; font-size: 32px; font-family: Aktiv Grotesk Corp; font-weight: 500; word-wrap: break-word">LET'S CONNECT</span><span style="color: white; font-size: 32px; font-family: Montserrat; font-style: italic; font-weight: 700; word-wrap: break-word">
+  </span><span style="color: #68636D; font-size: 32px; font-family: Space Grotesk; font-weight: 700; word-wrap: break-word">If you'd like to get in touch, discuss a project, or just say hello, feel free to reach out by email or find me on one of the platforms below.</span></div>
+
+    <!-- GitHub -->
+    <a class="social-card" href="https://github.com/hankrmc77" target="_blank" rel="noopener" style="width: 344px; height: 338px; left: 39px; top: 7411px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, #303030 0%, #111111 100%); box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.22) inset, -4px -4px 12px rgba(255, 255, 255, 0.35) inset, 0px 12px 24px rgba(0, 0, 0, 0.24); border-radius: 58px"></div>
+        <img style="width: 105px; height: 105px; left: 120px; top: 21px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/github-white-icon%201.png" />
+        <div style="left: 81px; top: 174px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica; font-weight: 400; word-wrap: break-word">Projects & code</div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="social-card" href="https://www.linkedin.com/in/%D0%BF%D0%B0%D0%B2%D0%B5%D0%BB-%D0%B3%D0%BD%D0%B5%D0%B7%D0%B4%D0%B8%D0%BB%D0%BE%D0%B2-0813513b8" target="_blank" rel="noopener" style="width: 407px; height: 338px; left: 437px; top: 7411px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 31px; top: 0px; position: absolute; background: linear-gradient(180deg, #2D8BE0 0%, #0A66C2 100%); box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.22) inset, -4px -4px 12px rgba(255, 255, 255, 0.35) inset, 0px 12px 24px rgba(0, 0, 0, 0.24); border-radius: 58px"></div>
+        <img style="width: 407px; height: 104px; left: 0px; top: 0px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/linkedin%20logo%201.png" />
+        <div style="left: 96px; top: 174px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica; font-weight: 400; word-wrap: break-word">Professional profile</div>
+    </a>
+
+    <!-- YouTube -->
+    <a class="social-card" href="https://youtube.com/@digitalpaul-u1z" target="_blank" rel="noopener" style="width: 344px; height: 369px; left: 897px; top: 7380px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0px; top: 31px; position: absolute; background: linear-gradient(180deg, #FF334F 0%, #E5002D 100%); box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.22) inset, -4px -4px 12px rgba(255, 255, 255, 0.35) inset, 0px 12px 24px rgba(0, 0, 0, 0.24); border-radius: 58px"></div>
+        <img style="width: 226px; height: 210px; left: 59px; top: 0px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(9)%201.png" />
+        <div style="left: 12px; top: 205px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica; font-weight: 400; word-wrap: break-word">Technology & cybersecurity</div>
+    </a>
+
+    <!-- TryHackMe -->
+    <a class="social-card" href="https://tryhackme.com/p/hankrmc77" target="_blank" rel="noopener" style="width: 344px; height: 338px; left: 39px; top: 7824px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, #F0444D 0%, #C91F2B 100%); box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.22) inset, -4px -4px 12px rgba(255, 255, 255, 0.35) inset, 0px 12px 24px rgba(0, 0, 0, 0.24); border-radius: 58px"></div>
+        <img style="width: 133px; height: 133px; left: 106px; top: 18px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/tryhackme-anodupj9mqt3ekhc90qmo9%201.png" />
+        <div style="left: 25px; top: 203px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica; font-weight: 400; word-wrap: break-word">Cybersecurity & progress</div>
+    </a>
+
+    <!-- Telegram -->
+    <a class="social-card" href="https://t.me/Hankcr7" target="_blank" rel="noopener" style="width: 344px; height: 338px; left: 468px; top: 7824px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, #38B9EE 0%, #168CC5 100%); box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.22) inset, -4px -4px 12px rgba(255, 255, 255, 0.35) inset, 0px 12px 24px rgba(0, 0, 0, 0.24); border-radius: 58px"></div>
+        <img style="width: 122px; height: 122px; left: 111px; top: 13px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/telegram-white-icon%201.png" />
+        <div style="left: 100px; top: 203px; position: absolute; color: black; font-size: 28px; font-family: Coolvetica; font-weight: 400; word-wrap: break-word">Message me</div>
+    </a>
+
+    <!-- Email -->
+    <a class="social-card" href="mailto:daxashen@gmail.com" style="width: 344px; height: 338px; left: 897px; top: 7824px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, white 0%, #E7E7E7 100%); box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.22) inset, -4px -4px 12px rgba(255, 255, 255, 0.35) inset, 0px 12px 24px rgba(0, 0, 0, 0.24); border-radius: 58px"></div>
+        <img style="width: 148px; height: 148px; left: 98px; top: 0px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Sign%20in%201.png" />
+        <div style="left: 118px; top: 203px; position: absolute; color: black; font-size: 28px; font-family: Coolvetica; font-weight: 400; word-wrap: break-word">Let's talk</div>
+    </a>
+
+    <!-- FOOTER -->
+    <div style="width: 1280px; height: 404px; left: 0px; top: 8247px; position: absolute; background: #171619; overflow: hidden">
+        <div style="left: 13px; top: 138px; position: absolute; text-align: center; color: #F5F3F7; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">Thanks for visiting my portfolio.
+    Feel free to explore my projects, connect with me, or reach out if you'd like to work together.<br/>© 2026 Pavel Gnezdilov</div>
+    </div>
+
+</div>
+
+<script>
+  // Smooth scroll for nav and explore buttons
+  document.querySelectorAll('.nav-item, .explore-btn').forEach(el => {
+    el.addEventListener('click', () => {
+      const target = el.getAttribute('data-target');
+      const section = document.getElementById(target);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Cosmic starfield for About section
+  (function() {
+    const canvas = document.getElementById('cosmic-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const about = document.getElementById('about');
+    let w, h, stars = [], meteors = [];
+
+    function resize() {
+      w = about.offsetWidth;
+      h = about.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // create stars
+    for (let i = 0; i < 180; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.6 + 0.3,
+        a: Math.random(),
+        s: Math.random() * 0.02 + 0.005
+      });
+    }
+
+    function spawnMeteor() {
+      if (meteors.length > 3) return;
+      meteors.push({
+        x: Math.random() * w * 0.7 + w * 0.3,
+        y: -20,
+        len: Math.random() * 80 + 40,
+        speed: Math.random() * 6 + 4,
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3,
+        life: 1
+      });
+    }
+
+    setInterval(spawnMeteor, 2800);
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      // stars
+      stars.forEach(s => {
+        s.a += s.s;
+        if (s.a > 1 || s.a < 0) s.s *= -1;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${0.3 + s.a * 0.7})`;
+        ctx.fill();
+      });
+
+      // meteors
+      for (let i = meteors.length - 1; i >= 0; i--) {
+        const m = meteors[i];
+        m.x += Math.cos(m.angle) * m.speed;
+        m.y += Math.sin(m.angle) * m.speed;
+        m.life -= 0.012;
+
+        const grad = ctx.createLinearGradient(
+          m.x, m.y,
+          m.x - Math.cos(m.angle) * m.len,
+          m.y - Math.sin(m.angle) * m.len
+        );
+        grad.addColorStop(0, `rgba(180,220,255,${m.life})`);
+        grad.addColorStop(1, 'rgba(180,220,255,0)');
+
+        ctx.beginPath();
+        ctx.moveTo(m.x, m.y);
+        ctx.lineTo(
+          m.x - Math.cos(m.angle) * m.len,
+          m.y - Math.sin(m.angle) * m.len
+        );
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        if (m.life <= 0 || m.y > h + 50) meteors.splice(i, 1);
+      }
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+</script>
+
+
+</div>
+
+<!-- ========== TABLET ========== -->
+<div class="v-tablet">
+
+<div class="page">
+
+    <!-- HERO -->
+    <div style="width: 800px; height: 1080px; left: 0px; top: 0px; position: absolute; background: linear-gradient(180deg, #08090C 42%, #394056 100%); overflow: hidden">
+        <div style="width: 446px; left: 177px; top: 201px; position: absolute; color: white; font-size: 64px; font-family: Soyuz Grotesk; font-weight: 700; word-wrap: break-word">PAVEL GNEZDILOV</div>
+        <div style="width: 565px; height: 44px; left: 117px; top: 85px; position: absolute; background: #15171C; border-radius: 147px; border: 8px #292C33 solid"></div>
+        <div style="left: 224px; top: 328px; position: absolute"><span style="color: #8A8F98; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">Cybersecurity / </span><span style="color: #65BFFF; font-size: 28px; font-family: Space Grotesk; font-weight: 300; word-wrap: break-word">Developer</span></div>
+        
+        <div class="nav-item" data-target="about" style="left: 171px; top: 97px; position: absolute; color: white; font-size: 16px; font-family: Monoton; font-weight: 400; word-wrap: break-word">AB0UT</div>
+        <div class="nav-item" data-target="projects" style="left: 289px; top: 97px; position: absolute; color: white; font-size: 16px; font-family: Pilowlava; font-weight: 400; word-wrap: break-word">PROJECTS</div>
+        <div class="nav-item" data-target="socials" style="left: 469px; top: 94px; position: absolute; color: white; font-size: 20px; font-family: Soyuz Grotesk; font-weight: 700; word-wrap: break-word">SOCIALS</div>
+        <div class="nav-item" data-target="goals" style="left: 589px; top: 97px; position: absolute; color: white; font-size: 16px; font-family: Aktiv Grotesk Corp; font-weight: 500; word-wrap: break-word">GOALS</div>
+        
+        <img style="width: 329px; height: 494px; left: 471px; top: 586px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/ChatGPT%20Image%208%20%D0%B0%D0%B2%D0%B3.%202026%20%D0%B3.%2C%2011_27_28%201.png" />
+        <div style="width: 449px; height: 220px; left: 7px; top: 706px; position: absolute; color: #B8BCC4; font-size: 28px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Cybersecurity student and developer focused on building projects, exploring new technologies, and growing through hands-on experience.</div>
+        <div class="explore-btn" data-target="about" style="width: 233px; left: 289px; top: 1032px; position: absolute; text-align: center; color: #6FA8FF; font-size: 24px; font-family: Basement Grotesque; font-weight: 800; word-wrap: break-word">EXPLORE ↓</div>
+    </div>
+
+    <!-- ABOUT bg -->
+    <div style="width: 800px; height: 682px; left: 0px; top: 1194px; position: absolute; background: #08090C"></div>
+    <img style="width: 800px; height: 200px; left: 0px; top: 1080px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/noisy-gradients.png" />
+
+    <!-- Cosmic About (removed the two broken photos) -->
+    <div id="about" style="width: 800px; height: 891px; left: 0px; top: 1280px; position: absolute; overflow: hidden">
+        <canvas id="cosmic-canvas"></canvas>
+        <div class="nebula" style="width: 320px; height: 320px; left: 480px; top: 60px; background: radial-gradient(circle, #6C35D9 0%, transparent 70%);"></div>
+        <div class="nebula" style="width: 280px; height: 280px; left: 520px; top: 380px; background: radial-gradient(circle, #3159B8 0%, transparent 70%); animation-delay: 2s;"></div>
+        <div class="nebula" style="width: 220px; height: 220px; left: 420px; top: 500px; background: radial-gradient(circle, #65BFFF 0%, transparent 70%); animation-delay: 4s;"></div>
+    </div>
+
+    <div style="width: 514px; height: 149px; left: 150px; top: 1105px; position: absolute; color: #08090C; font-size: 128px; font-family: Montserrat; font-style: italic; font-weight: 900; word-wrap: break-word">ABOUT</div>
+    <div style="width: 269px; left: 272px; top: 1357px; position: absolute; color: white; font-size: 28px; font-family: Neue Montreal; font-style: italic; font-weight: 500; word-wrap: break-word">A little more about me.</div>
+    <div style="width: 367px; left: 32px; top: 1486px; position: absolute; color: white; font-size: 24px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">I’m Pavel, a cybersecurity student and developer focused on building things, exploring new technologies, and turning ideas into real projects. I’m currently developing my skills in cybersecurity, programming, and web design while working on personal projects and learning something new every day.</div>
+    <div style="width: 420px; left: 32px; top: 1853px; position: absolute; color: white; font-size: 24px; font-family: Neue Montreal; font-weight: 500; word-wrap: break-word">Based in Almaty, Kazakhstan · Open to new ideas</div>
+
+    <!-- Quote -->
+    <div style="width: 800px; height: 1088px; left: 0px; top: 2171px; position: absolute; background: linear-gradient(360deg, #6C35D9 0%, #3159B8 36%, #0C1221 75%, #08090C 100%)"></div>
+    <div style="left: 256px; top: 2675px; position: absolute; text-align: center; color: white; font-size: 28px; font-family: That That New Pixel Test; font-style: italic; font-weight: 400; word-wrap: break-word">Curiosity starts the journey.<br/>Building gives it a direction.</div>
+    <div class="explore-btn" data-target="projects" style="left: 241px; top: 3109px; position: absolute; text-align: center; color: white; font-size: 28px; font-family: Chivo Mono; font-style: italic; font-weight: 300; word-wrap: break-word">SCROLL TO EXPLORE ↓</div>
+
+    <!-- PROJECTS -->
+    <div id="projects" style="width: 800px; height: 1450px; left: 0px; top: 3259px; position: absolute; background: #F7F5FF; padding: 12px 29px; display: flex; flex-direction: column; gap: 18px;">
+        <div style="color: #17151C; font-size: 86px; font-family: Space Grotesk; font-weight: 500;">PROJECTS</div>
+        
+        <div><span style="color: #111111; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">Burmalda Analyzer. </span><span style="color: black; font-size: 28px; font-family: Neue Montreal; font-weight: 400;">A cybersecurity dashboard designed to turn raw security logs into clear, actionable insights. It monitors events, highlights potential threats, and provides an interactive interface for investigating suspicious activity.</span></div>
+        
+        <img style="width: 100%; max-width: 642px; height: auto; box-shadow: 0px 21px 40px rgba(0,0,0,0.25); border-radius: 58px;" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/photo_2026-08-09_09-55-34%201.png" />
+        
+        <div><span style="color: #08090C; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">THM Helper.</span><span style="color: black; font-size: 28px; font-family: Neue Montreal; font-weight: 400;"> A TryHackMe utility for tracking progress, finding new challenges, and monitoring leaderboard changes.</span></div>
+        
+        <div><span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-style: italic; font-weight: 700;">🏆 Leaderboard — </span><span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-weight: 400;">Your Rank / Competitor / Difference<br/></span>
+        <span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-style: italic; font-weight: 700;">🔥 Room Hunter — </span><span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-weight: 400;">New Challenge<br/></span>
+        <span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-style: italic; font-weight: 700;">📊 Progress —</span><span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-weight: 400;"> Rooms / Points / Level<br/></span>
+        <span style="color: #15171C; font-size: 28px; font-family: Neue Montreal; font-style: italic; font-weight: 700;">🔔 Notifications</span></div>
+        
+        <div style="color: #08090C; font-size: 28px; font-family: Neue Montreal; font-style: italic; font-weight: 700;">IN DEVELOPMENT.</div>
+        
+        <div><span style="color: #08090C; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">Port Scanner. </span><span style="color: black; font-size: 28px; font-family: Neue Montreal; font-weight: 400;">A lightweight Python tool for scanning IPv4 addresses and domains, with customizable port ranges and multithreaded scanning.</span></div>
+        
+        <div><span style="color: #1E1E1E; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">Password Strength.</span><span style="color: black; font-size: 28px; font-family: Neue Montreal; font-weight: 400;"> Checker. A simple Python tool that evaluates password strength based on length, characters, and complexity.</span></div>
+        
+        <div><span style="color: #1E1E1E; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">Hash Tool.</span><span style="color: black; font-size: 28px; font-family: Neue Montreal; font-weight: 400;"> A lightweight Python utility for generating and verifying MD5, SHA-1, SHA-256, and SHA-512 hashes.</span></div>
+    </div>
+
+    <!-- TERMINAL -->
+    <img style="width: 800px; height: 1274px; left: 0px; top: 4709px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Rectangle%2012.png" />
+    <div style="width: 800px; height: 1274px; left: 0px; top: 4709px; position: absolute; background: rgba(11, 11, 13, 0.66); border-radius: 58px"></div>
+    <div style="width: 800px; height: 60px; left: 0px; top: 4709px; position: absolute; background: white; overflow: hidden; border-top-left-radius: 58px; border-top-right-radius: 68px">
+        <div style="left: 34px; top: 16px; position: absolute; color: black; font-size: 28px; font-family: Space Grotesk;">🔴</div>
+        <div style="left: 80px; top: 16px; position: absolute; color: black; font-size: 28px; font-family: Space Grotesk;">🟡</div>
+        <div style="left: 126px; top: 16px; position: absolute; color: black; font-size: 28px; font-family: Space Grotesk;">🟢</div>
+        <div style="left: 332px; top: 13px; position: absolute; color: black; font-size: 28px; font-family: Chivo Mono; font-weight: 500;">TERMINAL</div>
+    </div>
+    <div style="width: 786px; height: 1202px; left: 14px; top: 4781px; position: absolute; color: #00C853; font-size: 26px; font-family: Chivo Mono; font-weight: 500; word-wrap: break-word">$ whoami  <br/><br/>Pavel Gnezdilov <br/>Cybersecurity Student   <br/><br/>$ education  <br/><br/>3rd Year Digital College<br/>of KazGASA Information Security   <br/><br/>$ certifications  <br/><br/>02 certificates <br/><br/>Google Cybersecurity <br/>Network Basics — Cisco NetAcad   <br/><br/>$ cybersecurity  <br/><br/>Network protocols <br/>Linux / Kali Linux <br/>Security tools <br/>AI-assisted workflows <br/>Log analysis <br/>Threat analysis   <br/><br/>$ tryhackme  <br/><br/>AUGUST '26 <br/>Best position: KAZAKHSTAN — #1 WORLDWIDE — #365  TOP 7% ALL-TIME  <br/>Progress: ACTIVE<br/><br/>$ status  <br/><br/>Always learning. Always building.   <br/><br/>$ _</div>
+
+    <!-- GOALS -->
+    <div id="goals" style="width: 801px; height: 1272px; left: 0px; top: 5983px; position: absolute; background: #E8E8E8"></div>
+    <div style="width: 342px; height: 111px; left: 230px; top: 6018px; position: absolute; color: #555555; font-size: 96px; font-family: Neue Montreal; font-weight: 700;">GOALS</div>
+    
+    <div style="width: 773px; left: 7px; top: 6191px; position: absolute"><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400;">01 — CYBERSECURITY<br/></span><span style="color: #555555; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">I want to become a stronger cybersecurity specialist by gaining more practical experience, improving my technical skills, and working on projects that solve real problems.</span></div>
+    <div style="width: 780px; left: 7px; top: 6378px; position: absolute"><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400;">02 — CAREER<br/></span><span style="color: #555555; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">My next goal is to gain real work experience during my college internship and find a remote position with a company in Europe. I want to work in a professional environment and learn from real-world tasks.</span></div>
+    <div style="width: 780px; left: 7px; top: 6603px; position: absolute"><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400;">03 — EDUCATION<br/></span><span style="color: #555555; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">My current goal is to successfully finish college and continue my education through higher education. I want to keep developing my knowledge and skills while figuring out which direction I want to take next.</span></div>
+    <div style="width: 787px; left: 0px; top: 6828px; position: absolute"><span style="color: black; font-size: 32px; font-family: Neue Montreal; font-weight: 400;">04 — STUDYING ABROAD<br/></span><span style="color: #555555; font-size: 28px; font-family: Neue Montreal; font-weight: 500;">One of my long-term goals is to study abroad. I would like to experience a different educational environment, meet people from different backgrounds, and continue developing both academically and personally.</span></div>
+
+    <!-- Goals floating images -->
+    <img class="float-rot float-delay-1" style="--r: 28deg; width: 200px; height: 192px; left: 97px; top: 5979px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(5)%201.png" />
+    <img class="float-rot float-delay-2" style="--r: 20deg; width: 147px; height: 147px; left: 657px; top: 6263px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(6)%201.png" />
+    <img class="float float-delay-3" style="width: 155px; height: 141px; left: 509px; top: 6510px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(7)%201.png" />
+    <img class="float-rot float-delay-4" style="--r: 38deg; width: 157px; height: 157px; left: 286px; top: 6479px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20free%20png%20of%20PNG%20Vintage%20graduation%20cap%20illustration_%20by%20Hein%20about%20graduation,%20graduation%20hat%20halftone,%20aesthetic%20png,%20graduation%20vintage,%20and%20graduation%20png%2017874227%201.png" />
+    <img class="float float-delay-5" style="width: 181px; height: 181px; left: 538px; top: 6720px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20premium%20image%20of%20Vintage%20textured%20briefcase%20illustration_%20by%20Tanat%20Chittirungsan%20about%20paper,%20background,%20texture,%20space,%20and%20aesthetic%2022325371%201.png" />
+    <img class="float float-delay-1" style="width: 266px; height: 266px; left: 0px; top: 6985px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20premium%20png%20of%20PNG%20Classical%20sculpture%20bust%20design%20by%20Hein%20about%20classical%20statue%20pop,%20background,%20transparent%20png,%20png,%20and%20paper%2017812897%201.png" />
+    <img class="float-rot float-delay-2" style="--r: -16deg; width: 287px; height: 287px; left: 216px; top: 7037px; position: absolute; transform-origin: top left" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(8)%201.png" />
+    <img class="float float-delay-3" style="width: 196px; height: 201px; left: 587px; top: 5987px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/a1e2f38f44a6cc822fe0a3c4c3269dbeaf9a1b7e.png" />
+
+    <!-- SOCIALS -->
+    <div id="socials" style="width: 801px; height: 1530px; left: 0px; top: 7255px; position: absolute; background: linear-gradient(180deg, #F5F2F7 0%, #867D8D 100%)"></div>
+    <div style="left: 0px; top: 7280px; position: absolute; color: #17151A; font-size: 64px; font-family: Montserrat; font-style: italic; font-weight: 700;">SOCIALS / CONTACT</div>
+    <div style="width: 774px; left: 7px; top: 7422px; position: absolute"><span style="color: #3F3C43; font-size: 24px; font-family: Aktiv Grotesk Corp; font-weight: 500;">LET'S CONNECT</span><span style="color: #68636D; font-size: 24px; font-family: Space Grotesk; font-weight: 700;"> If you'd like to get in touch, discuss a project, or just say hello, feel free to reach out by email or find me on one of the platforms below.</span></div>
+
+    <!-- GitHub -->
+    <a class="social-card" href="https://github.com/hankrmc77" target="_blank" rel="noopener" style="width: 344px; height: 338px; left: 23px; top: 7576px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0; top: 0; position: absolute; background: linear-gradient(180deg, #303030 0%, #111111 100%); box-shadow: 4px 4px 14px rgba(0,0,0,0.22) inset, -4px -4px 12px rgba(255,255,255,0.35) inset, 0 12px 24px rgba(0,0,0,0.24); border-radius: 58px;"></div>
+        <img style="width: 105px; height: 105px; left: 120px; top: 21px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/github-white-icon%201.png" />
+        <div style="left: 81px; top: 174px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica;">Projects & code</div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="social-card" href="https://www.linkedin.com/in/%D0%BF%D0%B0%D0%B2%D0%B5%D0%BB-%D0%B3%D0%BD%D0%B5%D0%B7%D0%B4%D0%B8%D0%BB%D0%BE%D0%B2-0813513b8" target="_blank" rel="noopener" style="width: 407px; height: 338px; left: 394px; top: 7576px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 31px; top: 0; position: absolute; background: linear-gradient(180deg, #2D8BE0 0%, #0A66C2 100%); box-shadow: 4px 4px 14px rgba(0,0,0,0.22) inset, -4px -4px 12px rgba(255,255,255,0.35) inset, 0 12px 24px rgba(0,0,0,0.24); border-radius: 58px;"></div>
+        <img style="width: 407px; height: 104px; left: 0; top: 0; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/linkedin%20logo%201.png" />
+        <div style="left: 96px; top: 174px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica;">Professional profile</div>
+    </a>
+
+    <!-- TryHackMe -->
+    <a class="social-card" href="https://tryhackme.com/p/hankrmc77" target="_blank" rel="noopener" style="width: 344px; height: 338px; left: 23px; top: 7978px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0; top: 0; position: absolute; background: linear-gradient(180deg, #F0444D 0%, #C91F2B 100%); box-shadow: 4px 4px 14px rgba(0,0,0,0.22) inset, -4px -4px 12px rgba(255,255,255,0.35) inset, 0 12px 24px rgba(0,0,0,0.24); border-radius: 58px;"></div>
+        <img style="width: 133px; height: 133px; left: 106px; top: 18px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/tryhackme-anodupj9mqt3ekhc90qmo9%201.png" />
+        <div style="left: 25px; top: 203px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica;">Cybersecurity & progress</div>
+    </a>
+
+    <!-- Telegram -->
+    <a class="social-card" href="https://t.me/Hankcr7" target="_blank" rel="noopener" style="width: 344px; height: 338px; left: 426px; top: 7978px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0; top: 0; position: absolute; background: linear-gradient(180deg, #38B9EE 0%, #168CC5 100%); box-shadow: 4px 4px 14px rgba(0,0,0,0.22) inset, -4px -4px 12px rgba(255,255,255,0.35) inset, 0 12px 24px rgba(0,0,0,0.24); border-radius: 58px;"></div>
+        <img style="width: 122px; height: 122px; left: 111px; top: 13px; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/telegram-white-icon%201.png" />
+        <div style="left: 100px; top: 203px; position: absolute; color: black; font-size: 28px; font-family: Coolvetica;">Message me</div>
+    </a>
+
+    <!-- YouTube -->
+    <a class="social-card" href="https://youtube.com/@digitalpaul-u1z" target="_blank" rel="noopener" style="width: 344px; height: 369px; left: 23px; top: 8349px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0; top: 31px; position: absolute; background: linear-gradient(180deg, #FF334F 0%, #E5002D 100%); box-shadow: 4px 4px 14px rgba(0,0,0,0.22) inset, -4px -4px 12px rgba(255,255,255,0.35) inset, 0 12px 24px rgba(0,0,0,0.24); border-radius: 58px;"></div>
+        <img style="width: 226px; height: 210px; left: 59px; top: 0; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(9)%201.png" />
+        <div style="left: 12px; top: 205px; position: absolute; color: white; font-size: 28px; font-family: Coolvetica;">Technology & cybersecurity</div>
+    </a>
+
+    <!-- Email -->
+    <a class="social-card" href="mailto:daxashen@gmail.com" style="width: 344px; height: 338px; left: 426px; top: 8380px; position: absolute">
+        <div style="width: 344px; height: 338px; left: 0; top: 0; position: absolute; background: linear-gradient(180deg, white 0%, #E7E7E7 100%); box-shadow: 4px 4px 14px rgba(0,0,0,0.22) inset, -4px -4px 12px rgba(255,255,255,0.35) inset, 0 12px 24px rgba(0,0,0,0.24); border-radius: 58px;"></div>
+        <img style="width: 148px; height: 148px; left: 98px; top: 0; position: absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Sign%20in%201.png" />
+        <div style="left: 118px; top: 203px; position: absolute; color: black; font-size: 28px; font-family: Coolvetica;">Let's talk</div>
+    </a>
+
+    <!-- FOOTER -->
+    <div style="width: 801px; height: 404px; left: 0px; top: 8785px; position: absolute; background: #171619; overflow: hidden">
+        <div style="width: 766px; left: 18px; top: 130px; position: absolute; text-align: center; color: #F5F3F7; font-size: 32px; font-family: Space Grotesk; font-weight: 300;">Thanks for visiting my portfolio.<br>Feel free to explore my projects, connect with me, or reach out if you'd like to work together.<br/>© 2026 Pavel Gnezdilov</div>
+    </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.nav-item, .explore-btn').forEach(el => {
+    el.addEventListener('click', () => {
+      const target = el.getAttribute('data-target');
+      const section = document.getElementById(target);
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Cosmic starfield
+  (function() {
+    const canvas = document.getElementById('cosmic-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const about = document.getElementById('about');
+    let w, h, stars = [], meteors = [];
+
+    function resize() {
+      w = about.offsetWidth;
+      h = about.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 140; i++) {
+      stars.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.5 + 0.3,
+        a: Math.random(),
+        s: Math.random() * 0.02 + 0.005
+      });
+    }
+
+    function spawnMeteor() {
+      if (meteors.length > 2) return;
+      meteors.push({
+        x: Math.random() * w * 0.6 + w * 0.3,
+        y: -20,
+        len: Math.random() * 70 + 30,
+        speed: Math.random() * 5 + 3.5,
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3,
+        life: 1
+      });
+    }
+    setInterval(spawnMeteor, 3200);
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      stars.forEach(s => {
+        s.a += s.s;
+        if (s.a > 1 || s.a < 0) s.s *= -1;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${0.3 + s.a * 0.7})`;
+        ctx.fill();
+      });
+      for (let i = meteors.length - 1; i >= 0; i--) {
+        const m = meteors[i];
+        m.x += Math.cos(m.angle) * m.speed;
+        m.y += Math.sin(m.angle) * m.speed;
+        m.life -= 0.013;
+        const grad = ctx.createLinearGradient(m.x, m.y, m.x - Math.cos(m.angle) * m.len, m.y - Math.sin(m.angle) * m.len);
+        grad.addColorStop(0, `rgba(180,220,255,${m.life})`);
+        grad.addColorStop(1, 'rgba(180,220,255,0)');
+        ctx.beginPath();
+        ctx.moveTo(m.x, m.y);
+        ctx.lineTo(m.x - Math.cos(m.angle) * m.len, m.y - Math.sin(m.angle) * m.len);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        if (m.life <= 0 || m.y > h + 40) meteors.splice(i, 1);
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+</script>
+
+</div>
+
+<!-- ========== MOBILE ========== -->
+<div class="v-mobile">
+
+<div class="page">
+
+  <!-- HERO -->
+  <div style="width:375px;height:1080px;left:1px;top:0;position:absolute;background:linear-gradient(180deg,#08090C 42%,#394056 100%);overflow:hidden">
+    <div style="left:49px;top:192px;position:absolute;color:white;font-size:40px;font-family:Soyuz Grotesk;font-weight:700">PAVEL GNEZDILOV</div>
+    <div style="left:34px;top:329px;position:absolute"><span style="color:#8A8F98;font-size:24px;font-family:Space Grotesk;font-weight:300">Cybersecurity / </span><span style="color:#65BFFF;font-size:24px;font-family:Space Grotesk;font-weight:300">Developer</span></div>
+
+    <!-- + MENU BUTTON -->
+    <div class="mobile-menu-btn" id="menuBtn" style="left:282px;top:71px">
+      <span>+</span>
+    </div>
+
+    <img id="heroImg" style="width:314px;height:471px;left:32px;top:543px;position:absolute;transition:transform 0.1s linear" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/ChatGPT%20Image%208%20%D0%B0%D0%B2%D0%B3.%202026%20%D0%B3.%2C%2011_27_28%201.png"/>
+    <div style="width:369px;left:3px;top:464px;position:absolute;text-align:center;color:#B8BCC4;font-size:16px;font-family:Montserrat;font-weight:500">Cybersecurity student and developer focused on building projects, exploring new technologies, and growing through hands-on experience.</div>
+    <div class="explore-btn" data-t="m-about" style="width:233px;left:71px;top:1039px;position:absolute;text-align:center;color:#6FA8FF;font-size:16px;font-family:Basement Grotesque;font-weight:800">EXPLORE ↓</div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="menu-item" data-t="m-about">ABOUT</div>
+    <div class="menu-item" data-t="m-projects">PROJECTS</div>
+    <div class="menu-item" data-t="m-goals">GOALS</div>
+    <div class="menu-item" data-t="m-socials">SOCIALS</div>
+  </div>
+
+  <!-- ABOUT bg -->
+  <div style="width:375px;height:1094px;left:1px;top:1077px;position:absolute;background:#08090C"></div>
+  <img style="width:375px;height:126px;left:1px;top:1080px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/noisy-gradients.png"/>
+
+  <!-- Cosmic About (no broken photos) -->
+  <div id="m-about" class="cosmic-area" style="width:375px;height:965px;left:1px;top:1206px;position:absolute">
+    <canvas class="cosmic-canvas" id="c-mob"></canvas>
+    <div class="nebula" style="width:200px;height:200px;left:90px;top:120px;background:radial-gradient(circle,#6C35D9,transparent 70%)"></div>
+    <div class="nebula" style="width:160px;height:160px;left:180px;top:400px;background:radial-gradient(circle,#3159B8,transparent 70%);animation-delay:2s"></div>
+  </div>
+
+  <div style="width:250px;left:67px;top:1105px;position:absolute;color:#08090C;font-size:64px;font-family:Montserrat;font-style:italic;font-weight:900">ABOUT</div>
+  <div class="reveal" style="width:280px;left:52px;top:1241px;position:absolute;color:white;font-size:28px;font-family:Neue Montreal;font-style:italic;font-weight:500">A little more about me.</div>
+  <div class="reveal" style="width:365px;left:8px;top:1512px;position:absolute;text-align:center;color:white;font-size:22px;font-family:Neue Montreal;font-weight:500">I’m Pavel, a cybersecurity student and developer focused on building things, exploring new technologies, and turning ideas into real projects. I’m currently developing my skills in cybersecurity, programming, and web design while working on personal projects and learning something new every day.</div>
+  <div class="reveal" style="width:340px;left:19px;top:1792px;position:absolute;text-align:center;color:white;font-size:22px;font-family:Neue Montreal;font-weight:500">Based in Almaty, Kazakhstan · Open to new ideas</div>
+
+  <!-- Quote -->
+  <div style="width:375px;height:1088px;left:1px;top:2171px;position:absolute;background:linear-gradient(360deg,#6C35D9 0%,#3159B8 36%,#0C1221 75%,#08090C 100%)"></div>
+  <div style="left:51px;top:2675px;position:absolute;text-align:center;color:white;font-size:28px;font-family:That That New Pixel Test;font-style:italic;font-weight:400">Curiosity starts the journey.<br/>Building gives it a direction.</div>
+  <div class="explore-btn" data-t="m-projects" style="left:30px;top:3109px;position:absolute;text-align:center;color:white;font-size:28px;font-family:Chivo Mono;font-style:italic;font-weight:300">SCROLL TO EXPLORE ↓</div>
+
+  <!-- PROJECTS -->
+  <div id="m-projects" style="width:375px;height:1232px;left:1px;top:3259px;position:absolute;background:#F7F5FF"></div>
+  <div style="width:317px;left:30px;top:3282px;position:absolute;color:#17151C;font-size:64px;font-family:Space Grotesk;font-weight:500">PROJECTS</div>
+  <img class="reveal" style="width:310px;height:174px;left:32px;top:3386px;position:absolute;box-shadow:0 21px 40px rgba(0,0,0,0.25);border-radius:58px;object-fit:cover" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/photo_2026-08-09_09-55-34%201.png"/>
+  <div class="reveal" style="width:314px;left:35px;top:3594px;position:absolute;text-align:center;font-size:20px;font-family:Neue Montreal"><span style="font-weight:500">Burmalda Analyzer. </span>A cybersecurity dashboard designed to turn raw security logs into clear, actionable insights. It monitors events, highlights potential threats, and provides an interactive interface for investigating suspicious activity.</div>
+  <div class="reveal" style="width:312px;left:37px;top:3781px;position:absolute;text-align:center;font-size:20px;font-family:Neue Montreal"><span style="font-weight:500">Port Scanner. </span>A lightweight Python tool for scanning IPv4 addresses and domains, with customizable port ranges and multithreaded scanning.</div>
+  <div class="reveal" style="width:300px;left:42px;top:3904px;position:absolute;text-align:center;font-size:20px;font-family:Neue Montreal"><span style="font-weight:500">Password Strength Checker. </span>A simple Python tool that evaluates password strength based on length, characters, and complexity.</div>
+  <div class="reveal" style="width:312px;left:37px;top:4028px;position:absolute;text-align:center;font-size:20px;font-family:Neue Montreal"><span style="font-weight:500">Hash Tool. </span>A lightweight Python utility for generating and verifying MD5, SHA-1, SHA-256, and SHA-512 hashes.</div>
+  <div class="reveal" style="width:313px;left:33px;top:4152px;position:absolute;text-align:center;font-size:20px;font-family:Neue Montreal"><span style="font-weight:500">THM Helper. </span>A TryHackMe utility for tracking progress, finding new challenges, and monitoring leaderboard changes.</div>
+  <div class="reveal" style="width:305px;left:42px;top:4270px;position:absolute;font-size:20px;font-family:Neue Montreal"><span style="font-style:italic;font-weight:700">🏆 Leaderboard — </span>Your Rank / Competitor / Difference<br/><span style="font-style:italic;font-weight:700">🔥 Room Hunter — </span>New Challenge<br/><span style="font-style:italic;font-weight:700">📊 Progress —</span> Rooms / Points / Level<br/><span style="font-style:italic;font-weight:700">🔔 Notifications</span></div>
+  <div style="left:103px;top:4443px;position:absolute;color:#08090C;font-size:20px;font-family:Neue Montreal;font-style:italic;font-weight:700">IN DEVELOPMENT.</div>
+
+  <!-- TERMINAL -->
+  <img style="width:375px;height:1055px;left:1px;top:4491px;position:absolute;border-radius:58px;object-fit:cover" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Rectangle%2012.png"/>
+  <div style="width:375px;height:1055px;left:1px;top:4491px;position:absolute;background:rgba(11,11,13,0.66);border-radius:58px"></div>
+  <div style="width:375px;height:60px;left:1px;top:4491px;position:absolute;background:white;border-radius:58px 68px 0 0">
+    <div style="left:31px;top:22px;position:absolute;font-size:16px">🔴</div>
+    <div style="left:62px;top:22px;position:absolute;font-size:16px">🟡</div>
+    <div style="left:93px;top:22px;position:absolute;font-size:16px">🟢</div>
+    <div style="left:140px;top:18px;position:absolute;font-size:20px;font-family:Chivo Mono;font-weight:500">TERMINAL</div>
+  </div>
+
+  <div style="width:357px;left:8px;top:4563px;position:absolute;color:#00C853;font-size:18px;font-family:Chivo Mono;font-weight:500;line-height:1.5">$ whoami<br/><br/>Pavel Gnezdilov<br/>Cybersecurity Student<br/><br/>$ education<br/><br/>3rd Year Digital College<br/>of KazGASA Information Security<br/><br/>$ certifications<br/><br/>02 certificates<br/><br/>Google Cybersecurity<br/>Network Basics — Cisco NetAcad<br/><br/>$ cybersecurity<br/><br/>Network protocols<br/>Linux / Kali Linux<br/>Security tools<br/>AI-assisted workflows<br/>Log analysis<br/>Threat analysis<br/><br/>$ tryhackme<br/><br/>AUGUST '26<br/>Best position: KAZAKHSTAN — #1<br/>WORLDWIDE — #365  TOP 7% ALL-TIME<br/>Progress: ACTIVE<br/><br/>$ status<br/><br/>Always learning. Always building.<br/><br/>$ _</div>
+
+  <!-- GOALS -->
+  <div id="m-goals" style="width:377px;height:1272px;left:1px;top:5546px;position:absolute;background:#E8E8E8"></div>
+  <div style="width:223px;left:77px;top:5572px;position:absolute;color:#555555;font-size:64px;font-family:Neue Montreal;font-weight:700">GOALS</div>
+  <div class="reveal" style="width:351px;left:15px;top:5761px;position:absolute;font-size:20px;font-family:Neue Montreal"><span style="font-weight:400">01 — CYBERSECURITY<br/></span><span style="color:#555555;font-weight:500">I want to become a stronger cybersecurity specialist by gaining more practical experience, improving my technical skills, and working on projects that solve real problems.</span></div>
+  <div class="reveal" style="width:351px;left:15px;top:5948px;position:absolute;font-size:20px;font-family:Neue Montreal"><span style="font-weight:400">02 — CAREER<br/></span><span style="color:#555555;font-weight:500">My next goal is to gain real work experience during my college internship and find a remote position with a company in Europe. I want to work in a professional environment and learn from real-world tasks.</span></div>
+  <div class="reveal" style="width:350px;left:15px;top:6173px;position:absolute;font-size:20px;font-family:Neue Montreal"><span style="font-weight:400">03 — EDUCATION<br/></span><span style="color:#555555;font-weight:500">My current goal is to successfully finish college and continue my education through higher education. I want to keep developing my knowledge and skills while figuring out which direction I want to take next.</span></div>
+  <div class="reveal" style="width:358px;left:8px;top:6398px;position:absolute;font-size:20px;font-family:Neue Montreal"><span style="font-weight:400">04 — STUDYING ABROAD<br/></span><span style="color:#555555;font-weight:500">One of my long-term goals is to study abroad. I would like to experience a different educational environment, meet people from different backgrounds, and continue developing both academically and personally.</span></div>
+
+  <!-- floating images -->
+  <img class="float-rot d1" style="--r:28deg;width:85px;height:88px;left:43px;top:5610px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(5)%201.png"/>
+  <img class="float-rot d2" style="--r:20deg;width:119px;height:119px;left:267px;top:5864px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(6)%201.png"/>
+  <img class="float d3" style="width:81px;height:74px;left:285px;top:6106px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(7)%201.png"/>
+  <img class="float-rot d1" style="--r:38deg;width:96px;height:96px;left:208px;top:6098px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20free%20png%20of%20PNG%20Vintage%20graduation%20cap%20illustration_%20by%20Hein%20about%20graduation,%20graduation%20hat%20halftone,%20aesthetic%20png,%20graduation%20vintage,%20and%20graduation%20png%2017874227%201.png"/>
+  <img class="float d2" style="width:90px;height:90px;left:266px;top:6318px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20premium%20image%20of%20Vintage%20textured%20briefcase%20illustration_%20by%20Tanat%20Chittirungsan%20about%20paper,%20background,%20texture,%20space,%20and%20aesthetic%2022325371%201.png"/>
+  <img class="float d3" style="width:137px;height:137px;left:8px;top:6667px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Download%20premium%20png%20of%20PNG%20Classical%20sculpture%20bust%20design%20by%20Hein%20about%20classical%20statue%20pop,%20background,%20transparent%20png,%20png,%20and%20paper%2017812897%201.png"/>
+  <img class="float-rot d1" style="--r:-16deg;width:157px;height:157px;left:72px;top:6594px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(8)%201.png"/>
+  <img class="float d2" style="width:136px;height:139px;left:239px;top:5634px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/a1e2f38f44a6cc822fe0a3c4c3269dbeaf9a1b7e.png"/>
+
+  <!-- SOCIALS -->
+  <div id="m-socials" style="width:377px;height:2528px;left:1px;top:6818px;position:absolute;background:linear-gradient(180deg,#F5F2F7 0%,#867D8D 100%)"></div>
+  <div style="width:351px;left:1px;top:6837px;position:absolute;color:#17151A;font-size:32px;font-family:Montserrat;font-style:italic;font-weight:700">SOCIALS / CONTACT</div>
+  <div style="width:360px;left:7px;top:6910px;position:absolute;color:#68636D;font-size:20px;font-family:Space Grotesk;font-weight:700">If you'd like to get in touch, discuss a project, or just say hello, feel free to reach out by email or find me on one of the platforms below.</div>
+
+  <a class="social-card" href="https://github.com/hankrmc77" target="_blank" style="width:344px;height:338px;left:15px;top:7077px;position:absolute">
+    <div style="width:344px;height:338px;background:linear-gradient(180deg,#303030,#111);border-radius:58px;box-shadow:0 12px 24px rgba(0,0,0,0.24)"></div>
+    <img style="width:105px;height:105px;left:120px;top:21px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/github-white-icon%201.png"/>
+    <div style="left:81px;top:174px;position:absolute;color:white;font-size:28px;font-family:Coolvetica">Projects & code</div>
+  </a>
+  <a class="social-card" href="https://tryhackme.com/p/hankrmc77" target="_blank" style="width:344px;height:338px;left:18px;top:7454px;position:absolute">
+    <div style="width:344px;height:338px;background:linear-gradient(180deg,#F0444D,#C91F2B);border-radius:58px"></div>
+    <img style="width:133px;height:133px;left:106px;top:18px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/tryhackme-anodupj9mqt3ekhc90qmo9%201.png"/>
+    <div style="left:25px;top:203px;position:absolute;color:white;font-size:28px;font-family:Coolvetica">Cybersecurity & progress</div>
+  </a>
+  <a class="social-card" href="https://youtube.com/@digitalpaul-u1z" target="_blank" style="width:344px;height:369px;left:18px;top:7807px;position:absolute">
+    <div style="width:344px;height:338px;left:0;top:31px;background:linear-gradient(180deg,#FF334F,#E5002D);border-radius:58px"></div>
+    <img style="width:226px;height:210px;left:59px;top:0;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20(9)%201.png"/>
+    <div style="left:12px;top:205px;position:absolute;color:white;font-size:28px;font-family:Coolvetica">Technology & cybersecurity</div>
+  </a>
+  <a class="social-card" href="https://www.linkedin.com/in/%D0%BF%D0%B0%D0%B2%D0%B5%D0%BB-%D0%B3%D0%BD%D0%B5%D0%B7%D0%B4%D0%B8%D0%BB%D0%BE%D0%B2-0813513b8" target="_blank" style="width:344px;height:338px;left:18px;top:8215px;position:absolute">
+    <div style="width:344px;height:338px;background:linear-gradient(180deg,#2D8BE0,#0A66C2);border-radius:58px"></div>
+    <img style="width:280px;height:72px;left:32px;top:40px;position:absolute;object-fit:contain" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/linkedin%20logo%201.png"/>
+    <div style="left:50px;top:174px;position:absolute;color:white;font-size:28px;font-family:Coolvetica">Professional profile</div>
+  </a>
+  <a class="social-card" href="https://t.me/Hankcr7" target="_blank" style="width:344px;height:338px;left:18px;top:8592px;position:absolute">
+    <div style="width:344px;height:338px;background:linear-gradient(180deg,#38B9EE,#168CC5);border-radius:58px"></div>
+    <img style="width:122px;height:122px;left:111px;top:13px;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/telegram-white-icon%201.png"/>
+    <div style="left:100px;top:203px;position:absolute;color:black;font-size:28px;font-family:Coolvetica">Message me</div>
+  </a>
+  <a class="social-card" href="mailto:daxashen@gmail.com" style="width:344px;height:338px;left:18px;top:8969px;position:absolute">
+    <div style="width:344px;height:338px;background:linear-gradient(180deg,#fff,#E7E7E7);border-radius:58px"></div>
+    <img style="width:148px;height:148px;left:98px;top:0;position:absolute" src="https://raw.githubusercontent.com/hankrmc77/portfolio-images/refs/heads/main/%D0%BF%D0%BA/Sign%20in%201.png"/>
+    <div style="left:118px;top:203px;position:absolute;color:black;font-size:28px;font-family:Coolvetica">Let's talk</div>
+  </a>
+
+  <!-- FOOTER -->
+  <div style="width:378px;height:404px;left:0;top:9346px;position:absolute;background:#171619">
+    <div style="width:375px;left:0;top:130px;position:absolute;text-align:center;color:#F5F3F7;font-size:20px;font-family:Space Grotesk;font-weight:300">Thanks for visiting my portfolio.<br/>© 2026 Pavel Gnezdilov</div>
+  </div>
+
+</div>
+
+<script>
+  // Menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Navigation
+  document.querySelectorAll('.explore-btn, .menu-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.getAttribute('data-t');
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('open');
+    });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Cosmic
+  (function() {
+    const canvas = document.getElementById('c-mob');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const parent = canvas.parentElement;
+    let w, h, stars = [], meteors = [];
+    function resize() {
+      w = parent.offsetWidth; h = parent.offsetHeight;
+      canvas.width = w; canvas.height = h;
+    }
+    resize();
+    for (let i = 0; i < 100; i++) {
+      stars.push({ x: Math.random()*w, y: Math.random()*h, r: Math.random()*1.3+0.3, a: Math.random(), s: Math.random()*0.02+0.005 });
+    }
+    setInterval(() => {
+      if (meteors.length < 2) meteors.push({ x: Math.random()*w*0.6+w*0.2, y: -10, len: Math.random()*50+25, speed: Math.random()*4+3, angle: Math.PI/4+(Math.random()-0.5)*0.3, life: 1 });
+    }, 3800);
+    function draw() {
+      ctx.clearRect(0,0,w,h);
+      stars.forEach(s => {
+        s.a += s.s; if (s.a>1||s.a<0) s.s*=-1;
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle = `rgba(255,255,255,${0.3+s.a*0.7})`; ctx.fill();
+      });
+      for (let i=meteors.length-1;i>=0;i--) {
+        const m = meteors[i];
+        m.x += Math.cos(m.angle)*m.speed; m.y += Math.sin(m.angle)*m.speed; m.life -= 0.015;
+        const g = ctx.createLinearGradient(m.x,m.y,m.x-Math.cos(m.angle)*m.len,m.y-Math.sin(m.angle)*m.len);
+        g.addColorStop(0,`rgba(180,220,255,${m.life})`); g.addColorStop(1,'transparent');
+        ctx.beginPath(); ctx.moveTo(m.x,m.y); ctx.lineTo(m.x-Math.cos(m.angle)*m.len,m.y-Math.sin(m.angle)*m.len);
+        ctx.strokeStyle=g; ctx.lineWidth=2; ctx.stroke();
+        if (m.life<=0||m.y>h+30) meteors.splice(i,1);
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // Simple parallax on scroll
+  const heroImg = document.getElementById('heroImg');
+  window.addEventListener('scroll', () => {
+    if (heroImg) heroImg.style.transform = `translateY(${window.scrollY * 0.12}px)`;
+  }, { passive: true });
+</script>
+
+</div>
+
+</body>
+</html>
